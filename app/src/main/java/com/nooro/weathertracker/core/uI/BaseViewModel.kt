@@ -6,7 +6,6 @@ import com.nooro.weathertracker.data.remote.model.response.weatherData.WeatherDa
 import com.nooro.weathertracker.util.Constant.SharedPreferenceKeys.WEATHER_LIST
 import com.nooro.weathertracker.util.PreferenceProvider
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.emitAll
 
 /**
  * Created by JeeteshSurana.

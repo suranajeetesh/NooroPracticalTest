@@ -2,7 +2,6 @@ package com.nooro.weathertracker.network.interceptor
 
 import com.nooro.weathertracker.network.HttpConstants.HEADER_PARAMETER
 import com.nooro.weathertracker.network.HttpConstants.WEATHER_API_KEY
-import com.nooro.weathertracker.util.PreferenceProvider
 import okhttp3.Interceptor
 import okhttp3.MediaType
 import okhttp3.Protocol
@@ -16,9 +15,7 @@ import java.net.HttpURLConnection.HTTP_CLIENT_TIMEOUT
 /**
  * Created by Jeetesh Surana.
  */
-class HeaderInterceptor(
-    private val preferenceProvider: PreferenceProvider
-) : Interceptor {
+class HeaderInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
 
         return try {

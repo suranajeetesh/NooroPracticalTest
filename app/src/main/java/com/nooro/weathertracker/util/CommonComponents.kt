@@ -6,7 +6,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -73,7 +72,8 @@ internal fun CommonTextField(
             }
         },
         trailingIcon = {
-            Box(modifier = Modifier.padding(end = 12.dp)
+            Box(modifier = Modifier
+                .padding(end = 12.dp)
                 .circularClickable { onTrailingIconClick() }) {
                 Image(
                     painter = painterResource(R.drawable.ic_search),
@@ -82,7 +82,9 @@ internal fun CommonTextField(
                 )
             }
         },
-        modifier = Modifier.fillMaxWidth().padding(24.dp), colors = getTextFieldColors(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(24.dp), colors = getTextFieldColors(),
         textStyle = font(15.sp, fontWeight = FontWeight.Normal, color = CharlestonGreen),
     )
 }
@@ -116,6 +118,7 @@ fun GlideImage(
         factory = { context: Context ->
             ImageView(context).apply {
                 // You can set layout parameters if needed
+                this.contentDescription = contentDescription
             }
         },
         update = { imageView ->

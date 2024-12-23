@@ -4,7 +4,6 @@ import android.content.Context
 import com.nooro.weathertracker.network.ApiRestService
 import com.nooro.weathertracker.network.interceptor.HeaderInterceptor
 import com.nooro.weathertracker.network.interceptor.NetworkInterceptor
-import com.nooro.weathertracker.util.PreferenceProvider
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,8 +26,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun getHeaderInterceptor(preferenceProvider: PreferenceProvider) =
-        HeaderInterceptor(preferenceProvider)
+    fun getHeaderInterceptor() = HeaderInterceptor()
 
     @Provides
     @Singleton

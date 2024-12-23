@@ -50,14 +50,4 @@ class HomeViewModel @Inject constructor(
             }
         }
     }
-
-    fun deleteWeatherDataInList(weatherDataResponse: WeatherDataResponse){
-        if (listWeatherData.value.contains(weatherDataResponse)) {
-            listWeatherData.update {
-                val mutableList = it.toMutableList()
-                mutableList.remove(weatherDataResponse)
-                mutableList as ArrayList<WeatherDataResponse>
-            }
-        }
-    }
 }

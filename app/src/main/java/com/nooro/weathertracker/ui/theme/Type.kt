@@ -1,7 +1,6 @@
 package com.nooro.weathertracker.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.White
@@ -12,17 +11,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import com.nooro.weathertracker.R
-
-// Set of Material typography styles to start with
-val Typography = Typography(
-    bodyLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
-        letterSpacing = 0.5.sp
-    )
-)
 
 @Composable
 private fun poppinsFontFamilyData(): FontFamily {
@@ -55,15 +43,6 @@ fun font(fontSize: TextUnit = 16.sp, fontWeight: FontWeight = FontWeight.Normal,
         fontWeight = fontWeight,
         fontSize = fontSize, color = color ?: getDefaultTextColor(darkTheme)
     )
-}
-
-@Composable
-fun getDarkColor(darkTheme: Boolean = isSystemInDarkTheme()): Color {
-    return if (darkTheme) {
-        SilverSand
-    } else {
-        CharlestonGreen
-    }
 }
 
 @Composable
