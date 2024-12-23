@@ -3,12 +3,16 @@ package com.nooro.weathertracker.ui.theme
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
@@ -55,4 +59,27 @@ fun WeatherTrackerTheme(
         typography = Typography,
         content = content
     )
+}
+
+@Composable
+fun CommonMaterialTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    snackBarHost: @Composable () -> Unit = {},
+    content: @Composable (PaddingValues) -> Unit,
+) {
+
+    val colors = when {
+        darkTheme -> DarkColorScheme
+        else -> LightColorScheme
+    }
+    MaterialTheme(colors) {
+        androidx.compose.material3.Scaffold(
+            modifier = Modifier.fillMaxSize(),
+            topBar = { },
+            containerColor = getBackgroundColor(),
+            snackbarHost = snackBarHost
+        ) { paddingValues ->
+            content(paddingValues)
+        }
+    }
 }
